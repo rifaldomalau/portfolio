@@ -1,0 +1,177 @@
+/* HOME.CSS DENGAN KOMENTAR PENJELASAN */
+
+/* Container utama untuk seluruh konten home */
+.home-container {
+    max-width: 1000px;       /* Lebar maksimum konten */
+    margin: 0 auto;          /* Posisi ditengah */
+    padding: 20px;           /* Ruang padding */
+    margin-top: 50px;
+  }
+  
+  /* ============= HERO SECTION ============= */
+  /* Area utama bagian atas halaman */
+  .hero-section {
+    text-align: center;      /* Rata tengah konten */
+    padding: 80px 20px;      /* Ruang dalam */
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%); /* Gradien background */
+    border-radius: 15px;     /* Sudut melengkung */
+    margin-bottom: 40px;     /* Jarak ke section bawah */
+    /* margin-top: 50px; */
+  }
+  
+  /* Judul utama hero section */
+  .hero-title {
+    font-size: 2.8rem;       /* Ukuran font besar */
+    color: #2c3e50;          /* Warna teks gelap */
+    margin: 20px;     /* Jarak ke subtitle */
+  }
+  
+  /* Subjudul di bawah judul utama */
+  .hero-subtitle {
+    font-size: 1.2rem;       /* Ukuran font sedang */
+    color: #7f8c8d;          /* Warna teks abu-abu */
+    max-width: 600px;        /* Lebar maksimum teks */
+    margin: 0 auto 30px;     /* Posisi tengah dan jarak */
+  }
+  
+  /* Container untuk tombol-tombol CTA */
+  .hero-cta {
+    display: flex;           /* Layout flexbox */
+    gap: 15px;               /* Jarak antar tombol */
+    justify-content: center; /* Rata tengah */
+  }
+  
+  /* ============= BUTTON STYLES ============= */
+  /* Style untuk tombol utama */
+  .cta-button {
+    background-color: #3498db; /* Warna biru */
+    color: white;            /* Warna teks */
+    border: none;            /* Tanpa border */
+    padding: 12px 25px;      /* Ruang dalam */
+    border-radius: 30px;     /* Bentuk bulat */
+    font-size: 1rem;        /* Ukuran font */
+    cursor: pointer;        /* Kursor pointer */
+    transition: all 0.3s ease; /* Animasi hover */
+  }
+  
+  /* Efek saat hover tombol utama */
+  .cta-button:hover {
+    background-color: #2980b9; /* Warna biru lebih gelap */
+    transform: translateY(-2px); /* Efek naik sedikit */
+  }
+  
+  /* Style untuk tombol sekunder */
+  .outline-button {
+    background-color: transparent; /* Transparan */
+    color: #3498db;          /* Warna biru */
+    border: 2px solid #3498db; /* Border biru */
+    padding: 12px 25px;      /* Ruang dalam */
+    border-radius: 30px;     /* Bentuk bulat */
+    font-size: 1rem;        /* Ukuran font */
+    cursor: pointer;        /* Kursor pointer */
+    transition: all 0.3s ease; /* Animasi hover */
+  }
+  
+  /* Efek saat hover tombol sekunder */
+  .outline-button:hover {
+    background-color: rgba(52, 152, 219, 0.1); /* Biru transparan */
+    transform: translateY(-2px);  /* Efek naik sedikit */
+  }
+  
+  /* ============= VALUE SECTION ============= */
+  /* Container untuk value proposition cards */
+  .value-section {
+    scroll-margin-top: 20px;  /* Memberi jarak saat discroll */
+    display: grid;                          /* Layout grid */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 30px;                             /* Jarak antar card */
+    margin-bottom: 60px;                   /* Jarak ke section bawah */
+  }
+  
+  /* Style untuk tiap value card */
+  .value-card {
+    background: white;                     /* Background putih */
+    padding: 30px;                         /* Ruang dalam */
+    border-radius: 10px;                   /* Sudut melengkung */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Bayangan halus */
+    text-align: center;                    /* Rata tengah konten */
+    transition: transform 0.3s ease;       /* Animasi hover */
+  }
+  
+  /* Efek saat hover card */
+  .value-card:hover {
+    transform: translateY(-5px);           /* Efek naik */
+    background-color: lightskyblue;
+  }
+  
+  /* Judul di dalam value card */
+  .value-card h3 {
+    color: #3498db;                        /* Warna biru */
+    margin-bottom: 15px;                   /* Jarak ke paragraf */
+  }
+  
+  .value-card:hover h3 {
+    color: black;
+  }
+  /* ============= SIMPLE CTA SECTION ============= */
+  /* Section call-to-action bawah */
+  .simple-cta {
+    text-align: center;      /* Rata tengah */
+    padding: 50px 20px;      /* Ruang dalam */
+    background-color: #f8f9fa; /* Background abu-abu muda */
+    border-radius: 15px;     /* Sudut melengkung */
+  }
+  
+  /* Judul CTA */
+  .simple-cta h2 {
+    margin-bottom: 20px;     /* Jarak ke tombol */
+    color: #2c3e50;          /* Warna teks gelap */
+  }
+  
+  /* ============= RESPONSIVE DESIGN ============= */
+  /* Style untuk layar mobile (max-width 768px) */
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2rem;       /* Ukuran font lebih kecil */
+    }
+    
+    .hero-cta {
+      flex-direction: column; /* Tombol vertikal */
+      align-items: center;    /* Rata tengah */
+    }
+    
+    .value-section {
+      grid-template-columns: 1fr; /* Satu kolun di mobile */
+    }
+
+    .email-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+  }
+
+
+  /* Style untuk tombol email */
+    .email-button {
+    display: inline-block;
+    align-items: center; /* Pusatkan vertikal */
+    justify-content: center; /* Pusatkan horizontal */
+    gap: 8px; /* Jarak antara ikon dan teks */
+    background-color: #D44638; /* Warna merah khas Gmail */
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .email-button:hover {
+    background-color: lightskyblue; /* Warna lebih gelap saat hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  

@@ -1,0 +1,95 @@
+.about-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin-top: 30px;
+    background-color: white;
+  }
+  
+  .about-container {
+    display: flex;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    max-width: 900px;
+    width: 100%;
+  }
+  
+  .about-image-wrapper {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .about-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .about-image:hover {
+    filter: drop-shadow(0 0 15px rgba(0, 247, 255, 0.8));
+  }
+  .about-content {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: white;
+  }
+  
+  .about-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 1rem;
+  }
+  
+  .about-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #777;
+    margin-bottom: 1rem;
+  }
+  
+  /* Gaya untuk ikon media sosial */
+  .social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 1rem;
+  }
+  
+  .social-icon {
+    font-size: 3rem;
+    color: black;
+    transition: color 0.3s ease;
+  }
+  
+  .social-icon:hover {
+    color: lightskyblue;
+    transform: translateY(-2px);
+  }
+  
+  /* Responsive: tampilkan stack pada layar sempit */
+  @media (max-width: 768px) {
+    .about-container {
+      flex-direction: column;
+    }
+  
+    .about-image-wrapper {
+      width: 100%;
+      height: 250px;
+    }
+  
+    .about-content {
+      padding: 1.5rem;
+    }
+  
+    .social-icons {
+      justify-content: center;
+    }
+  }
+  
