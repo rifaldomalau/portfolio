@@ -1,0 +1,283 @@
+:root {
+  /* Palet Warna: Merah Darah & Neon Red */
+  --bg-dark: #2a0005;
+  --bg-center: #66000d;
+  --text-main: #e0e0e0;
+  --accent-red: #ff0022;
+  --font-ui: "Space Mono", monospace;
+  --font-display: "Syncopate", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* Latar belakang cenderung merah bercahaya di tengah, bukan hitam pekat */
+  background: radial-gradient(
+    circle at 50% 50%,
+    var(--bg-center) 0%,
+    var(--bg-dark) 100%
+  );
+  color: var(--text-main);
+  font-family: var(--font-ui);
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Efek asap/bayangan merah gelap di pinggiran layar */
+.vignette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0) 40%,
+    rgba(20, 0, 3, 0.85) 100%
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ================= HEADER & NAVIGASI ================= */
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 50px;
+  z-index: 20;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1.1;
+  color: var(--text-main);
+  text-shadow: 0 0 15px rgba(255, 0, 34, 0.6);
+}
+
+.logo span {
+  color: var(--accent-red);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  text-align: right;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--text-main);
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  transition: 0.3s;
+  position: relative;
+}
+
+.nav-links li a:hover {
+  color: var(--accent-red);
+  text-shadow: 0 0 10px var(--accent-red);
+}
+
+/* ================= HERO SECTION & TEKS RAKSASA ================= */
+.hero-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.huge-bg-text {
+  position: absolute;
+  font-family: var(--font-display);
+  font-size: 35vw;
+  color: rgba(255, 0, 34, 0.08);
+  -webkit-text-stroke: 1px rgba(255, 0, 34, 0.2);
+  z-index: 1;
+  white-space: nowrap;
+  text-shadow: 0 0 50px rgba(255, 0, 34, 0.15);
+}
+
+/* ================= AREA FOTO KARAKTER UTAMA ================= */
+.portrait-container {
+  position: relative;
+  z-index: 5;
+  height: 85vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: visible;
+}
+
+/* Entitas Dirimu */
+/* Entitas Dirimu */
+.portrait {
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.1) brightness(0.9) grayscale(0.05);
+  transition: transform 0.1s ease-out;
+
+  /* PROTEKSI ABSOLUT (Lolos Linter Apple & Universal) */
+  pointer-events: none;
+  -webkit-user-select: none; /* Perisai khusus Safari / iOS */
+  user-select: none;
+
+  /* EFEK MENYATU: Bagian bawah memudar perlahan */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 60%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 60%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+/* CAHAYA MERAH - Posisi Fixed menutupi seluruh layar agar tidak ada batas kotak */
+.red-light-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 0, 34, 0.2) 0%,
+    rgba(255, 0, 34, 0) 65%
+  );
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 6;
+}
+
+/* ================= INFO BAWAH ================= */
+.bottom-info {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  display: flex;
+  gap: 60px;
+  z-index: 20;
+}
+
+.info-block h3 {
+  font-size: 0.7rem;
+  color: var(--accent-red);
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.info-block ul {
+  list-style: none;
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: #ccc;
+}
+
+/* ================= TOMBOL GO PROJECT ================= */
+.side-tab {
+  text-decoration: none;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--accent-red);
+  color: #fff;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  font-weight: bold;
+  z-index: 20;
+  box-shadow: -5px 0 20px rgba(255, 0, 34, 0.4);
+  transition: all 0.3s ease-in-out;
+}
+
+.tab-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  letter-spacing: 2px;
+}
+
+/* EFEK HOVER CYBERPUNK GLITCH */
+.side-tab:hover {
+  background-color: #000;
+  color: #00d2ff;
+  box-shadow:
+    -5px 0 20px rgba(0, 210, 255, 0.6),
+    5px 0 20px rgba(255, 0, 34, 0.6);
+  border-left: 2px solid #00d2ff;
+  animation: glitch-box 0.3s infinite;
+}
+
+@keyframes glitch-box {
+  0% {
+    transform: translateY(-50%) translate(0, 0);
+  }
+  25% {
+    transform: translateY(-50%) translate(-2px, 2px);
+  }
+  50% {
+    transform: translateY(-50%) translate(2px, -2px);
+  }
+  75% {
+    transform: translateY(-50%) translate(-2px, -2px);
+  }
+  100% {
+    transform: translateY(-50%) translate(2px, 2px);
+  }
+}
+
+/* ================= MODE RESPONSIVE (HP) ================= */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .nav-links {
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 0.75rem;
+  }
+
+  .huge-bg-text {
+    font-size: 40vw;
+    top: 25%;
+  }
+
+  .portrait-container {
+    height: 60vh;
+    margin-bottom: 10vh;
+  }
+
+  .bottom-info {
+    bottom: 20px;
+    right: 0;
+    width: 100%;
+    justify-content: center;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .side-tab {
+    display: none;
+  }
+}

@@ -3,7 +3,72 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Dark Red Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syncopate:wght@700&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body></body>
+  <body>
+    <div class="vignette"></div>
+
+    <header>
+      <div class="logo">PORT<br />FOLIO<span>*</span></div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#home">HOME</a></li>
+          <li><a href="#techstack">TECH STACK</a></li>
+          <li><a href="#certificate">CERTIFICATE</a></li>
+          <li><a href="#experience">EXPERIENCE</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="hero-container">
+      <h1 class="huge-bg-text" id="bgText">HOT</h1>
+
+      <div class="portrait-container">
+        <img
+          src="hot.png"
+          alt="My Portrait"
+          class="portrait"
+          id="heroImage"
+          draggable="false"
+        />
+        <div class="red-light-overlay"></div>
+      </div>
+
+      <div class="bottom-info">
+        <div class="info-block">
+          <h3>WHAT I DO</h3>
+          <ul>
+            <li>AI DEVELOPER</li>
+            <li>DATA ANALYST</li>
+            <li>WEB DEVELOPER</li>
+          </ul>
+        </div>
+        <div class="info-block">
+          <h3>EXPERTISE</h3>
+          <ul>
+            <li>MACHINE LEARNING</li>
+            <li>PYTHON</li>
+            <li>NLP</li>
+          </ul>
+        </div>
+      </div>
+
+      <a
+        href="https://porto.up.railway.app"
+        class="side-tab"
+        target="_blank"
+        rel="noopener"
+      >
+        <span>GO</span>
+        <span class="tab-text">PROJECT</span>
+      </a>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
 </html>
