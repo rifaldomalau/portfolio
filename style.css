@@ -14,23 +14,30 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden; /* Segel dipindah ke tingkat dimensi tertinggi (html) */
+  width: 100%;
+}
+
 body {
-  /* Latar belakang cenderung merah bercahaya di tengah, bukan hitam pekat */
   background: radial-gradient(
     circle at 50% 50%,
     var(--bg-center) 0%,
     var(--bg-dark) 100%
   );
+  background-attachment: fixed;
   color: var(--text-main);
   font-family: var(--font-ui);
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden; /* Pasangkan dengan html agar tidak bug */
   position: relative;
 }
 
 /* Efek asap/bayangan merah gelap di pinggiran layar */
 .vignette {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -46,14 +53,31 @@ body {
 
 /* ================= HEADER & NAVIGASI ================= */
 header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 40px 50px;
-  z-index: 20;
+  align-items: center;
+  /* Trik optik: Padding atas dibuat lebih besar (30px) dari bawah (20px) */
+  padding: 30px 50px 20px 50px;
+  z-index: 999;
+  background: linear-gradient(
+    to bottom,
+    rgba(42, 0, 5, 0.9) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  transition: all 0.4s ease-in-out;
+}
+
+/* WUJUD KEDUA: Muncul otomatis saat scroll ke bawah */
+header.scrolled {
+  background: rgba(20, 0, 3, 0.95);
+  padding: 20px 50px 10px 50px; /* Jarak disusutkan merata */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 .logo {
@@ -93,7 +117,8 @@ header {
 .hero-container {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh; /* WAJIB 100vh agar halaman Home selalu pas 1 layar penuh */
+  min-height: 600px; /* Batas aman agar di HP tidak terlalu bantet */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,6 +126,10 @@ header {
 
 .huge-bg-text {
   position: absolute;
+  /* PROTEKSI ABSOLUT (Lolos Linter Apple & Universal) */
+  pointer-events: none;
+  -webkit-user-select: none; /* Perisai khusus Safari / iOS */
+  user-select: none;
   font-family: var(--font-display);
   font-size: 35vw;
   color: rgba(255, 0, 34, 0.08);
@@ -120,7 +149,6 @@ header {
   overflow: visible;
 }
 
-/* Entitas Dirimu */
 /* Entitas Dirimu */
 .portrait {
   height: 100%;
@@ -245,35 +273,62 @@ header {
 /* ================= MODE RESPONSIVE (HP) ================= */
 @media (max-width: 768px) {
   header {
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    gap: 15px;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    z-index: 9999 !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding: 25px 10px 10px 10px !important; /* Padding dikurangi agar tidak memakan layar */
+    gap: 2px !important; /* KUNCI: Tarik menu agar sangat mepet dengan logo */
+    box-sizing: border-box;
+  }
+
+  header.scrolled {
+    padding: 15px 10px 10px 10px !important;
+    gap: 2px !important;
+  }
+
+  .logo {
+    display: block !important;
+    text-align: center;
+    font-size: 1.3rem !important;
+    line-height: 0.9 !important; /* Rapatkan tulisan PORT dan FOLIO atas-bawah */
+    margin-bottom: 5px;
   }
 
   .nav-links {
-    gap: 15px;
+    display: flex !important;
+    width: 100%;
     justify-content: center;
+    gap: 4px 10px !important; /* Jarak vertikal 4px, horizontal 10px */
     flex-wrap: wrap;
-    font-size: 0.75rem;
+    font-size: 0.55rem !important; /* Susutkan sedikit lagi agar muat 1 baris di iPhone */
   }
 
+  .nav-links li a {
+    letter-spacing: 0.5px; /* Kurangi spasi antar huruf agar hemat ruang horizontal */
+  }
+
+  /* --- Sisa Layout Bawah --- */
   .huge-bg-text {
     font-size: 40vw;
     top: 25%;
   }
 
   .portrait-container {
-    height: 60vh;
-    margin-bottom: 10vh;
+    height: 55vh;
+    margin-bottom: 8vh;
   }
 
   .bottom-info {
-    bottom: 20px;
+    bottom: 30px;
     right: 0;
     width: 100%;
     justify-content: center;
-    gap: 30px;
+    gap: 20px;
     text-align: center;
   }
 
