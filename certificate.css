@@ -1,0 +1,207 @@
+/* ================= CERTIFICATE SECTION ================= */
+.cert-section {
+  min-height: 100vh;
+  padding: 100px 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  position: relative;
+  z-index: 20;
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* KARTU SERTIFIKAT */
+.cert-card {
+  background: rgba(10, 0, 2, 0.4);
+  border: 1px solid rgba(255, 0, 34, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  cursor: pointer;
+}
+
+.cert-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+
+.cert-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    transform 0.6s ease,
+    filter 0.6s ease;
+  filter: grayscale(40%) brightness(0.7);
+}
+
+/* OVERLAY HOVER (Hanya Zoom & Instruksi) */
+.cert-hover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(42, 0, 5, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  gap: 10px;
+  color: #fff;
+}
+
+.zoom-icon {
+  font-size: 2rem !important;
+  color: var(--accent-red);
+  filter: drop-shadow(0 0 10px var(--accent-red));
+  transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform: scale(0.5);
+}
+
+.cert-hover-overlay span {
+  font-family: var(--font-ui);
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+
+/* INFO BAWAH KARTU (Selalu Muncul) */
+.cert-info {
+  padding: 15px;
+  text-align: left;
+  border-top: 1px solid rgba(255, 0, 34, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.cert-info h4 {
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  color: var(--text-main);
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+/* Garis Penyelenggara */
+.cert-issuer-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cert-issuer-line i {
+  font-size: 0.8rem !important;
+  color: var(--accent-red);
+  opacity: 0.8;
+}
+
+.issuer-name {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  color: #aaa;
+  letter-spacing: 1px;
+}
+
+/* EFEK HOVER KARTU */
+.cert-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent-red);
+  box-shadow: 0 10px 20px rgba(255, 0, 34, 0.2);
+}
+
+.cert-card:hover .cert-hover-overlay {
+  opacity: 1;
+}
+
+.cert-card:hover .zoom-icon {
+  transform: scale(1);
+}
+
+.cert-card:hover .cert-img-wrapper img {
+  transform: scale(1.1);
+  filter: grayscale(0%) brightness(1);
+}
+
+.cert-card:hover .cert-info h4 {
+  color: var(--accent-red);
+}
+
+/* ================= SISTEM LIGHTBOX ================= */
+.cert-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 0, 2, 0.95);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  cursor: zoom-out;
+  padding: 40px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.cert-lightbox.active {
+  display: flex;
+}
+
+.cert-lightbox img {
+  max-width: 90%;
+  max-height: 85vh;
+  border: 2px solid var(--accent-red);
+  box-shadow: 0 0 50px rgba(255, 0, 34, 0.4);
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.cert-lightbox.active img {
+  transform: scale(1);
+}
+
+.lightbox-close-icon {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-family: var(--font-display);
+  color: #fff;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 10001;
+}
+
+.lightbox-close-icon:hover {
+  color: var(--accent-red);
+  text-shadow: 0 0 15px var(--accent-red);
+}
+
+/* RESPONSIVE HP */
+@media (max-width: 768px) {
+  .cert-grid {
+    grid-template-columns: 1fr;
+    padding: 0 15px;
+  }
+  .cert-section {
+    padding: 60px 5%;
+  }
+}

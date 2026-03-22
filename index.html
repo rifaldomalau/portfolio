@@ -4,10 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dark Red Portfolio</title>
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="techstack.css" />
-
+    <link rel="stylesheet" href="certificate.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syncopate:wght@700&display=swap"
       rel="stylesheet"
@@ -602,8 +609,88 @@
         </div>
       </div>
     </section>
+    <section id="certificate" class="cert-section">
+      <h2 class="section-title">CERTIF<span>ICATE</span></h2>
 
+      <div class="cert-grid">
+        <div class="cert-card" onclick="openLightbox(this)">
+          <div class="cert-img-wrapper">
+            <img id="card-img-preview" src="hot.png" alt="Sertifikat" />
+            <div class="cert-hover-overlay">
+              <i class="fa-solid fa-magnifying-glass-plus zoom-icon"></i>
+              <span>VIEW FULL IMAGE</span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <h4>DEEPFAKE DETECTION SPECIALIST</h4>
+            <div class="cert-issuer-line">
+              <i class="fa-solid fa-award"></i>
+              <span class="issuer-name">GOOGLE AI ACADEMY</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-card" onclick="openLightbox(this)">
+          <div class="cert-img-wrapper">
+            <img id="card-img-preview" src="hot.png" alt="Sertifikat" />
+            <div class="cert-hover-overlay">
+              <i class="fa-solid fa-magnifying-glass-plus zoom-icon"></i>
+              <span>VIEW FULL IMAGE</span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <h4>DEEPFAKE DETECTION SPECIALIST</h4>
+            <div class="cert-issuer-line">
+              <i class="fa-solid fa-award"></i>
+              <span class="issuer-name">GOOGLE AI ACADEMY</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-card" onclick="openLightbox(this)">
+          <div class="cert-img-wrapper">
+            <img id="card-img-preview" src="hot.png" alt="Sertifikat" />
+            <div class="cert-hover-overlay">
+              <i class="fa-solid fa-magnifying-glass-plus zoom-icon"></i>
+              <span>VIEW FULL IMAGE</span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <h4>DEEPFAKE DETECTION SPECIALIST</h4>
+            <div class="cert-issuer-line">
+              <i class="fa-solid fa-award"></i>
+              <span class="issuer-name">GOOGLE AI ACADEMY</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-card" onclick="openLightbox(this)">
+          <div class="cert-img-wrapper">
+            <img id="card-img-preview" src="hot.png" alt="Sertifikat" />
+            <div class="cert-hover-overlay">
+              <i class="fa-solid fa-magnifying-glass-plus zoom-icon"></i>
+              <span>VIEW FULL IMAGE</span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <h4>DEEPFAKE DETECTION SPECIALIST</h4>
+            <div class="cert-issuer-line">
+              <i class="fa-solid fa-award"></i>
+              <span class="issuer-name">GOOGLE AI ACADEMY</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="lightbox" class="cert-lightbox" onclick="closeLightbox(event)">
+      <span class="lightbox-close-icon" onclick="forceCloseLightbox()"
+        >&times;</span
+      >
+      <img id="lightbox-img" src="" alt="Preview" />
+    </div>
     <script src="script.js"></script>
     <script src="techstack.js"></script>
+    <script src="certificate.js"></script>
   </body>
 </html>
