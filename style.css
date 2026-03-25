@@ -16,8 +16,9 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden; /* Segel dipindah ke tingkat dimensi tertinggi (html) */
+  overflow-x: hidden;
   width: 100%;
+  background-color: var(--bg-dark); /* <-- Tambahkan baris ini */
 }
 
 body {

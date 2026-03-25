@@ -1,0 +1,176 @@
+/* =========================================
+   EXPERIENCE SECTION (COMPACT GRID DESKTOP)
+========================================= */
+
+.exp-section {
+    padding: 40px 5% 100px;
+    max-width: 1200px; /* Diperlebar agar muat 2 kolom dengan lega */
+    margin: 0 auto;
+    color: #fff;
+    font-family: 'Space Mono', monospace;
+}
+
+.exp-section .exp-title {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 30px; /* Margin diperkecil agar hemat vertikal space */
+    display: block;
+}
+
+.timeline {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px; /* Jarak antar kotak */
+}
+
+/* Membungkus Logo dan Judul Posisi */
+.exp-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed rgba(255, 0, 0, 0.3);
+}
+
+.company-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 5px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+}
+
+.timeline-date {
+    color: #ff3333;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.timeline-content {
+    background: rgba(15, 0, 0, 0.6);
+    border: 1px solid rgba(255, 0, 0, 0.2);
+    padding: 20px; /* Padding pas agar teks tidak berdesakan */
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.timeline-content:hover {
+    border-color: rgba(255, 0, 0, 0.8);
+    box-shadow: 0 5px 20px rgba(255, 0, 0, 0.15);
+    transform: translateY(-5px); /* Animasi hover ke atas, sangat sugoi untuk grid! */
+}
+
+.timeline-content .exp-titles h3 {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 0.95rem; /* Font diperkecil agar muat di 2 kolom */
+    margin: 0 0 4px 0;
+    color: #ffffff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.timeline-content .exp-titles h4 {
+    color: #ff6666;
+    font-size: 0.8rem;
+    margin: 0;
+    font-weight: 400;
+}
+
+.timeline-content p {
+    color: #cccccc;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin: 0;
+    flex-grow: 1; /* Mendorong konten agar seimbang di semua kotak */
+    text-align: justify;
+}
+
+/* =========================================
+   DESKTOP MODE (GRID 2x2)
+========================================= */
+@media (min-width: 992px) {
+    .timeline {
+        grid-template-columns: repeat(2, 1fr); /* Otomatis jadi 2 kolom menyamping */
+        gap: 30px;
+    }
+    
+    .timeline-date {
+        display: inline-block;
+        background: rgba(255, 0, 0, 0.15);
+        padding: 4px 10px;
+        border-radius: 4px;
+        border: 1px solid rgba(255, 0, 0, 0.3);
+        width: fit-content;
+        margin-bottom: 15px;
+        z-index: 2;
+    }
+
+    .timeline-content {
+        flex-grow: 1; /* Kotak otomatis memanjang rapi TANPA menabrak tanggal */
+        height: auto;
+    }
+
+    /* Sembunyikan elemen vertikal timeline di desktop */
+    .timeline::before {
+        display: none;
+    }
+    .timeline-dot {
+        display: none;
+    }
+    .timeline-item {
+        display: flex;
+        flex-direction: column;
+        padding-left: 0;
+        margin-bottom: 0;
+    }
+}
+
+/* =========================================
+   MOBILE MODE (VERTICAL TIMELINE)
+========================================= */
+@media (max-width: 991px) {
+    .timeline::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 20px;
+        height: 100%;
+        width: 2px;
+        background: linear-gradient(to bottom, rgba(255, 0, 0, 0.8), rgba(255, 0, 0, 0.1));
+    }
+    .timeline-item {
+        position: relative;
+        padding-left: 50px;
+    }
+    .timeline-dot {
+        position: absolute;
+        top: 0;
+        left: 14px;
+        width: 14px;
+        height: 14px;
+        background-color: #ff0000;
+        border-radius: 50%;
+        box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+        z-index: 2;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .timeline-item:hover .timeline-dot {
+        transform: scale(1.4);
+        box-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
+    }
+}

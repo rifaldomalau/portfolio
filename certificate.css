@@ -178,6 +178,19 @@
   transform: scale(1);
 }
 
+.cert-issuer-line {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Memberi jarak antara logo dan nama penerbit */
+}
+
+.issuer-logo {
+  width: 20px;
+  height: 20px;
+  object-fit: contain; /* Memastikan rasio logo tidak penyok */
+  border-radius: 2px; /* Opsional: memberi sudut sedikit membulat */
+}
+
 .lightbox-close-icon {
   position: absolute;
   top: 30px;
