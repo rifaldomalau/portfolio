@@ -19,7 +19,7 @@ html {
   overflow-x: hidden;
   width: 100%;
   background-color: var(--bg-dark); /* <-- Tambahkan baris ini */
-  overscroll-behavior: none;
+  overscroll-behavior-y: none;
 }
 
 body {
