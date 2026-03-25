@@ -19,6 +19,7 @@ html {
   overflow-x: hidden;
   width: 100%;
   background-color: var(--bg-dark); /* <-- Tambahkan baris ini */
+  overscroll-behavior: none;
 }
 
 body {
@@ -34,6 +35,7 @@ body {
   width: 100%;
   overflow-x: hidden; /* Pasangkan dengan html agar tidak bug */
   position: relative;
+  /* overscroll-behavior-y: none; */
 }
 
 /* Efek asap/bayangan merah gelap di pinggiran layar */
