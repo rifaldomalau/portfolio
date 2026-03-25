@@ -22,15 +22,29 @@ window.addEventListener("scroll", function () {
   }
 });
 
-// MANTRA PENYUNTIKAN FILE HTML EKSTERNAL
-document.addEventListener("DOMContentLoaded", () => {
-  fetch("techstack.html")
-    .then((response) => {
-      if (!response.ok) throw new Error("File senjata gagal dimuat.");
-      return response.text();
-    })
-    .then((data) => {
-      document.getElementById("techstack-container").innerHTML = data;
-    })
-    .catch((error) => console.error("Peringatan Matriks:", error));
-});
+// ================= JURUS RAHASIA: GULIR & REFRESH HOME =================
+function goHomeAndRefresh(event) {
+  event.preventDefault(); 
+
+  // 1. MATIKAN FITUR MENGINGAT SCROLL BROWSER!
+  // Ini kunci utama agar saat refresh, browser tidak menarik layar ke bawah lagi.
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
+  // 2. Hapus jejak menu (#...) dari URL
+  history.replaceState(null, null, window.location.pathname);
+
+  // 3. Mulai gulir mulus ke atas
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+  // 4. Beri waktu sedikit lebih lama (1 detik) agar guliran mulus sampai puncak
+  setTimeout(() => {
+    // Pastikan koordinat benar-benar 0 sebelum layar berkedip (refresh)
+    window.scrollTo(0, 0); 
+    window.location.reload();
+  }, 1000); 
+}

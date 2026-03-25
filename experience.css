@@ -156,10 +156,24 @@
     .timeline-item {
         position: relative;
         padding-left: 50px;
+        margin-bottom: 45px;
+    }
+    .timeline-date {
+        display: inline-block;
+        position: relative;
+        z-index: 5;
+        margin-bottom: 12px;
+        background: rgba(255, 0, 0, 0.15); /* Background kotak untuk tanggal di HP */
+        padding: 4px 10px;
+        border-radius: 4px;
+        border: 1px solid rgba(255, 0, 0, 0.3);
+    }
+    .timeline-content {
+        height: auto !important; /* KUNCI: Memaksa tinggi otomatis agar tidak menabrak tanggal */
     }
     .timeline-dot {
         position: absolute;
-        top: 0;
+        top: 6px; /* Diturunkan sedikit agar sejajar dengan tengah kotak tanggal */
         left: 14px;
         width: 14px;
         height: 14px;
